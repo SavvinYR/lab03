@@ -1,4 +1,5 @@
- #include <iostream>
+#include "histogram.cpp"
+#include <iostream>
 #include <vector>
 #include <math.h>
 #include <string>
@@ -16,26 +17,7 @@ vector<double> input_numbers(size_t count) //функция ввода чисел
 }
 
 
-void find_minmax(const vector<double>& numbers, double& min, double& max)
-{
-    {
 
-    } min = numbers[0];
-    max = numbers[0];
-    for (double number : numbers)
-    {
-        if (min > number)
-        {
-            min = number;
-        }
-        else if (max < number)
-        {
-            max = number;
-        }
-
-    }
-    return;
-}
 
 void make_histogram(size_t& bin_count,size_t& number_count, const vector<double>& numbers,vector <size_t>& bins, double& min, double& max )
 {
