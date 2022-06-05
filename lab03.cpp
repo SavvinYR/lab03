@@ -1,10 +1,11 @@
-#include "histogram.cpp"
+
 #include <iostream>
 #include <vector>
 #include <math.h>
 #include <string>
 #include "histogram.h"
-#include "svg.cpp"
+#include "svg.h"
+#include <curl/curl.h>
 using namespace std;
 
 vector<double> input_numbers(istream& in, size_t count) //функци€ ввода чисел
@@ -46,6 +47,8 @@ Input read_input(istream& in, bool prompt) {
 
 int main()
 {
+    curl_global_init(CURL_GLOBAL_ALL);
+
 
 
     //¬вод данных
