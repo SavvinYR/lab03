@@ -44,8 +44,8 @@ void show_histogram_svg(const vector<size_t>& bins)
     {
         const double bin_width = BLOCK_WIDTH * bin;
 
-        svg_text(TEXT_LEFT, top + TEXT_BASELINE, to_string(bin));
-        svg_rect(TEXT_WIDTH, top, bin_width, BIN_HEIGHT, "#CD5C5C", "#CD5C5C");
+        svg_text(IMAGE_WIDTH - TEXT_LEFT, top + TEXT_BASELINE, to_string(bin));
+        svg_rect (IMAGE_WIDTH - bin_width - TEXT_WIDTH , top,bin_width, BIN_HEIGHT, "#CD5C5C", "#CD5C5C");
         top += BIN_HEIGHT;
 
     }

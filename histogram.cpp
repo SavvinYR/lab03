@@ -26,26 +26,31 @@ void find_minmax(const vector<double>& numbers, double& min, double& max)
     return;
 }
 
-void make_histogram(const size_t& bin_count, const size_t& number_count, const vector<double>& numbers,vector <size_t>& bins, double& min, double& max )
+vector <size_t> make_histogram(const Input& input)
 {
-    double bin_size = (max - min) / bin_count;
-    for (size_t i = 0; i < number_count; i++)
+    vector <size_t> bins (input.bin_count, 0);
+    double min ;
+    double max ;
+    find_minmax(input.numbers, min, max);
+
+    double bin_size = (max - min) / input.bin_count;
+    for (size_t i = 0; i < input.number_count; i++)
     {
         bool found = false;
-        for(size_t j = 0; j < (bin_count-1) && !found; j++)
+        for(size_t j = 0; j < (input.bin_count-1) && !found; j++)
         {
             auto lo = min + j * bin_size;
             auto hi = min + (j+1) * bin_size;
-            if ((lo <= numbers[i])&& (numbers[i] < hi) )
+            if ((lo <= input.numbers[i])&& (input.numbers[i] < hi) )
             {
                 bins[j]++;
                 found = true;
             }
         }
         if(!found)
-            bins[bin_count-1]++;
+            bins[input.bin_count-1]++;
     }
-    return;
+    return bins;
 }
 
 void show_histogram_text(vector<size_t> bins)
