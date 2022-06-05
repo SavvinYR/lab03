@@ -45,8 +45,13 @@ Input read_input(istream& in, bool prompt) {
 
 
 
-int main()
-{
+int main(int argc, char* argv[])
+{ if (argc > 1){
+cout<<endl;
+for(int i=0; i<argc; i++)
+    cout<<endl<< argv[i];
+    cout<<endl;
+    return 0;}
     curl_global_init(CURL_GLOBAL_ALL);
 
 
