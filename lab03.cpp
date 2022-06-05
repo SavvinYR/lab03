@@ -17,19 +17,22 @@ vector<double> input_numbers(istream& in, size_t count) //функция ввода чисел
     return result;
 }
 
-Input read_input(istream& in) {
+Input read_input(istream& in, bool prompt) {
     Input data;
 
-    cerr << "Enter number count: ";
+    if (prompt)
+        cerr << "Enter number count: ";
     size_t number_count;
     in >> number_count;
     data.number_count = number_count;
 
-    cerr << "Enter numbers: ";
+    if (prompt)
+        cerr << "Enter numbers: ";
     data.numbers = input_numbers(in, number_count);
 
     size_t bin_count;
-    cerr << " Enter bin count:";
+    if (prompt)
+        cerr << " Enter bin count:";
     cin >> bin_count;
     data.bin_count = bin_count;
 
@@ -48,7 +51,7 @@ int main()
     //Ввод данных
 
 
-    const auto input = read_input(cin);
+    const auto input = read_input(cin, true);
 
     //Расчет гистограммы
 
