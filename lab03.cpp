@@ -7,6 +7,12 @@
 #include "svg.cpp"
 using namespace std;
 
+struct Input {
+    vector<double> numbers;
+    size_t bin_count;
+    size_t number_count;
+};
+
 vector<double> input_numbers(istream& in, size_t count) //функция ввода чисел
 {
     vector<double> result(count);
@@ -17,7 +23,26 @@ vector<double> input_numbers(istream& in, size_t count) //функция ввода чисел
     return result;
 }
 
+Input read_input(istream& in) {
+    Input data;
 
+    cerr << "Enter number count: ";
+    size_t number_count;
+    in >> number_count;
+    data.number_count = number_count;
+
+    cerr << "Enter numbers: ";
+    data.numbers = input_numbers(in, number_count);
+
+    size_t bin_count;
+    cerr << " Enter bin count:";
+    cin >> bin_count;
+    data.bin_count = bin_count;
+
+    // ...
+
+    return data;
+}
 
 
 
@@ -27,24 +52,16 @@ int main()
 
 
     //Ввод данных
-    size_t number_count;
 
 
-    cerr << "Enter number count:";
-    cin >> number_count;
-
-    const auto numbers = input_numbers(cin, number_count);
-
-    size_t bin_count;
-    cerr << " Enter bin count:";
-    cin >> bin_count;
+    const auto input = read_input(cin);
 
     //Расчет гистограммы
-    vector <size_t> bins (bin_count, 0);
+    vector <size_t> bins (input.bin_count, 0);
     double min ;
     double max ;
-    find_minmax(numbers, min, max);
-    make_histogram(bin_count, number_count, numbers, bins, min, max);
+    find_minmax(input.numbers, min, max);
+    make_histogram(input.bin_count, input.number_count, input.numbers, bins, min, max);
 
     //Вывод данных
     show_histogram_svg( bins);
