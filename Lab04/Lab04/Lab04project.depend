@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1654456568 source:c:\users\Ярослав\desktop\Программирование\2  Семестр\lab03\histogram.cpp
+1654519115 source:c:\users\Ярослав\desktop\Программирование\2  Семестр\lab03\histogram.cpp
 	<iostream>
 	<vector>
 	<math.h>
@@ -28,7 +28,9 @@
 	<vector>
 	<math.h>
 
-1654458949 source:c:\users\Ярослав\desktop\Программирование\2  Семестр\lab03\lab03.cpp
+1654505944 source:c:\users\Ярослав\desktop\Программирование\2  Семестр\lab03\lab03.cpp
+	<sstream>
+	<string>
 	<iostream>
 	<vector>
 	<math.h>

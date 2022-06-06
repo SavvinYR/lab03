@@ -53,12 +53,12 @@ vector <size_t> make_histogram(const Input& input)
     return bins;
 }
 
-void show_histogram_text(vector<size_t> bins)
+void show_histogram_text(vector<size_t> binss)
 {
     const size_t SCREEN_WIDTH = 80;
     const size_t MAX_ASTERISK = SCREEN_WIDTH - 3 - 1;
-    size_t max_bin = bins[0];
-    for(size_t bin : bins)
+    size_t max_bin = binss[0];
+    for(size_t bin : binss)
     {
         if(bin > max_bin)
         {
@@ -66,12 +66,27 @@ void show_histogram_text(vector<size_t> bins)
         }
     }
 
-    for (size_t bin : bins)
+
+    for (size_t bin : binss)
     {
+        size_t height = bin;
         if(max_bin > MAX_ASTERISK)   //Если масштабирование необходимо
         {
-            size_t heignt = MAX_ASTERISK * (static_cast<double>(bin)/max_bin);
+            height = MAX_ASTERISK * (static_cast<double>(bin) / max_bin);
         }
+      size_t  proverka = max_bin;
+
+        for(size_t i = 0; i < height; i++)
+        {
+            while ( proverka > height)
+            {
+                cout << " ";
+                proverka = proverka - 1;
+            }
+            cout << '*';
+        }
+        ;
+        cout << "|" ;
 
         if(bin < 100)
         {
@@ -81,11 +96,12 @@ void show_histogram_text(vector<size_t> bins)
         {
             cout << " ";
         }
-        cout << bin <<"|";
-        for(size_t i = 0; i < bin; i++)
-        {
-            cout << '*';
-        }
+        cout <<bin;
+
+
         cout << endl;
     }
-    return;}
+
+
+    return ;
+}
